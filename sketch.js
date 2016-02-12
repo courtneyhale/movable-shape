@@ -34,8 +34,8 @@ myShape.drawShape = function () {
 
 setup = function() {
 	createCanvas(600, 600);
-	myShape.delta.x = 0.25;
-	myShape.delta.y = 0.25;
+	myShape.x = 100;
+	myShape.speed.x = 2;
 };
 
 draw = function() {
