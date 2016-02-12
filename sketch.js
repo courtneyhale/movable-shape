@@ -35,7 +35,7 @@ myShape.drawShape = function () {
 setup = function() {
 	createCanvas(600, 600);
 	myShape.x = 100;
-	myShape.speed.x = 2;
+	myShape.speed.x = 1;
 };
 
 draw = function() {
