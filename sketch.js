@@ -6,88 +6,28 @@ var myRocket = movableShape;
 // (Basically, you can copy and paste your code from last time, although you may wish to refactor it so that it's more readable.)
 // That said, you may wish to try putting your unrefactored, raw drawing code from week 1 in here
 myRocket.drawShape = function () {
-	var rocket = {
-	  x:100, // rocket x
-	  y:300, // rocket y
-	  width: 200, // rocket width
-	  height: 400, // rocket body height
-	  topHeight: 100,
-	  draw: function () {
-	    this.drawStructure();
-	    this.drawTop();
-	    this.drawLeftwing();
-	    this.drawRightwing();
-	  },
-	  drawStructure: function() {
-	    rect(this.x, this.y, this.width, this.height);//draw a structure
-	  },
-	  drawTop: function() {
-	    var leftCorner = {
-	      x: this.x,
-	      y: this.y
-	    };
-	    var topPoint = {
-	      x: this.width / 2 + this.x,
-	      y: this.topHeight
-	    };
-	    var rightCorner = {
-	      x: this.x + this.width,
-	      y: this.y
-	    }
-	    triangle(leftCorner.x, leftCorner.y,topPoint.x, topPoint.y, rightCorner.x, rightCorner.y);
-	  },
-	  drawLeftwing: function() {
-	    var leftwingCorner = {
-	      x: this.x,
-	      y: this.y
-	    };
-	    var topwingPoint = {
-	      x: this.x,
-	      y: this.y
-	    };
-	    var rightwingCorner = {
-	      x: this.x,
-	      y: this.y
-	    }
-	    triangle(leftwingCorner.x - 80, leftwingCorner.y + 400, topwingPoint.x, topwingPoint.y +300, rightwingCorner.x, rightwingCorner.y + 400);
-	  },
-	  drawRightwing: function() {
-	    var leftwCorner = {
-	      x: this.x,
-	      y: this.y
-	    };
-	    var topwPoint = {
-	      x: this.x,
-	      y: this.y
-	    };
-	    var rightwCorner = {
-	      x: this.x,
-	      y: this.y
-	    }
-	    triangle(leftwCorner.x + 200, leftwCorner.y + 400, topwPoint.x + 200, topwPoint.y + 300, rightwCorner.x + 280, rightwCorner.y + 400);
-	  },
-	};
-	function setup () {
-	    createCanvas(700, 700);
-
-	    rocket.draw();
-
-	};
-
-	function draw() {
-
-	};
-// your code goes here
+	background('black');// black sky
+  fill('red'); // rocket color
+  rect(100,300,200,400); //rocket base
+  fill('blue');//top color
+  triangle(80,320,200,100,320,320); // rocket top
+  fill('yellow'); //rocket window color
+  ellipse(200,400,100,100); // rocket window
+  fill('blue');//side triangle fill
+  triangle(50,700,100,700,100,600);//left wing
+  triangle(300,700,350,700,300,600);//right wing
 };
 
 // You will also need to do some work to set the speed of the shape. How do you want it to move? What do you need to change to get it to move?
 
 setup = function() {
-	createCanvas(600, 600);
+	createCanvas(1000, 1000);
+	myRocket.y = 0;
+	myRocket.speed.y = -1;
 };
 
 draw = function() {
   background(100); // refresh the background
-  myShape.display(); // display myShape
-  myShape.update(); // and then update it
+  myRocket.display(); // display myShape
+  myRocket.update(); // and then update it
 };
